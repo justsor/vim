@@ -244,6 +244,7 @@ call quickmenu#append('Paste mode %{&paste? "[x]" :"[ ]"}', 'call menu#TogglePas
 call quickmenu#append('Ignore Case %{&ignorecase? "[x]" :"[ ]"}', 'set ignorecase!', 'set ignorecase!')
 call quickmenu#append('DelimitMate %{get(b:, "delimitMate_enabled", 0)? "[x]":"[ ]"}', 'DelimitMateSwitch', 'switch DelimitMate')
 call quickmenu#append('Edit tool', 'call menu#EditTool()', 'edit vimmake tools in '. g:vimmake_path)
+call quickmenu#append('reset multipleSearch', 'call MultipleSearch#MultipleSearchReset(0)', ' Reset MultipleSearch ')
 
 
 if has('win32') || has('win64') || has('win16') || has('win95')

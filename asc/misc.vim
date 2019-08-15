@@ -165,7 +165,7 @@ function! <SID>snip_main()
 		let l:text += ['{']
 		let l:text += ["\tprintf(\"Hello World !!\\n\");"]
 		let l:text += ["\treturn 0;"]
-		let l:text += ['{']
+		let l:text += ['}']
 	elseif &filetype == 'python'
 		let l:text += ['#! /usr/bin/env python']
 		let l:text += ['# -*- coding: utf-8 -*-']
@@ -205,7 +205,8 @@ endfunc
 noremap <space>e- :call <SID>snip_comment_block('-')<cr>
 noremap <space>e= :call <SID>snip_comment_block('=')<cr>
 noremap <space>e# :call <SID>snip_comment_block('#')<cr>
-noremap <space>ec :call <SID>snip_copyright('skywind')<cr>
+noremap <space>e* :call <SID>snip_comment_block('*')<cr>
+noremap <space>ec :call <SID>snip_copyright('Yinghai.Li')<cr>
 noremap <space>eb :call <SID>snip_bundle()<cr>
 noremap <space>em :call <SID>snip_main()<cr>
 noremap <space>el :call <SID>snip_modeline()<cr>

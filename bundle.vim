@@ -90,7 +90,7 @@ if index(g:bundle_group, 'basic') >= 0
 	Plug 'flazz/vim-colorschemes'
 	Plug 'xolox/vim-misc'
 	Plug 'terryma/vim-expand-region'
-	Plug 'pprovost/vim-ps1', { 'for': 'ps1' }
+	" Plug 'pprovost/vim-ps1', { 'for': 'ps1' }
 	Plug 'tbastos/vim-lua', { 'for': 'lua' }
 	Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 	Plug 'justinmk/vim-syntax-extra', { 'for': ['c', 'bison', 'flex', 'cpp'] }
@@ -99,16 +99,16 @@ if index(g:bundle_group, 'basic') >= 0
 	Plug 'dag/vim-fish'
 	
 	if has('python') || has('python3')
-		Plug 'Yggdroot/LeaderF'
-		let g:Lf_ShortcutF = '<c-p>'
-		let g:Lf_ShortcutB = '<m-n>'
-		noremap <c-n> :cclose<cr>:Leaderf mru --regexMode<cr>
-		noremap <m-p> :cclose<cr>:LeaderfFunction!<cr>
-		noremap <m-P> :cclose<cr>:LeaderfBufTag!<cr>
-		noremap <m-n> :cclose<cr>:LeaderfBuffer<cr>
-		noremap <m-m> :cclose<cr>:LeaderfTag<cr>
-		let g:Lf_MruMaxFiles = 2048
-		let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
+		" Plug 'Yggdroot/LeaderF'
+		" let g:Lf_ShortcutF = '<c-p>'
+		" let g:Lf_ShortcutB = '<m-n>'
+		" noremap <c-n> :cclose<cr>:Leaderf mru --regexMode<cr>
+		" noremap <m-p> :cclose<cr>:LeaderfFunction!<cr>
+		" noremap <m-P> :cclose<cr>:LeaderfBufTag!<cr>
+		" noremap <m-n> :cclose<cr>:LeaderfBuffer<cr>
+		" noremap <m-m> :cclose<cr>:LeaderfTag<cr>
+		" let g:Lf_MruMaxFiles = 2048
+		" let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 	else
 		Plug 'ctrlpvim/ctrlp.vim'
 		Plug 'tacahiroy/ctrlp-funky'
@@ -204,9 +204,9 @@ endif
 "----------------------------------------------------------------------
 if index(g:bundle_group, 'high') >= 0
 	Plug 'kshenoy/vim-signature'
-	Plug 'mhinz/vim-signify'
+	" Plug 'mhinz/vim-signify'
 	Plug 'mh21/errormarker.vim'
-	Plug 't9md/vim-choosewin'
+	" Plug 't9md/vim-choosewin'
 	Plug 'francoiscabrol/ranger.vim'
 	Plug 'kana/vim-textobj-user'
 	" Plug 'kana/vim-textobj-indent'
@@ -221,8 +221,8 @@ if index(g:bundle_group, 'high') >= 0
 	nnoremap <silent> [e :ErrorAtCursor<CR>
 	nnoremap <silent> <leader>cM :RemoveErrorMarkers<cr>
 
-	nmap <m-e> <Plug>(choosewin)
-	let g:ranger_map_keys = 0
+	" nmap <m-e> <Plug>(choosewin)
+	" let g:ranger_map_keys = 0
 
 end
 
@@ -231,14 +231,16 @@ end
 " package group - opt
 "----------------------------------------------------------------------
 if index(g:bundle_group, 'opt') >= 0
-	Plug 'junegunn/fzf'
-	Plug 'mhartington/oceanic-next'
+	" Plug 'junegunn/fzf'
+	" Plug 'mhartington/oceanic-next'
 	Plug 'asins/vim-dict'
-	Plug 'jceb/vim-orgmode', { 'for': 'org' }
-	Plug 'soft-aesthetic/soft-era-vim'
-	Plug 'dyng/ctrlsf.vim'
-	Plug 'itchyny/calendar.vim', { 'on': 'Calendar' }
+	" Plug 'jceb/vim-orgmode', { 'for': 'org' }
+	" Plug 'soft-aesthetic/soft-era-vim'
+	" Plug 'dyng/ctrlsf.vim'
+	" Plug 'itchyny/calendar.vim', { 'on': 'Calendar' }
 	Plug 'tpope/vim-speeddating'
+    Plug 'hari-rangarajan/CCTree'
+    Plug 'vim-scripts/a.vim'
 	" Plug 'itchyny/vim-cursorword'
 	let g:gutentags_modules = []
 	if executable('ctags')
@@ -249,12 +251,34 @@ if index(g:bundle_group, 'opt') >= 0
 	endif
 	if len(g:gutentags_modules) > 0
 		if s:uname != 'windows'
-			Plug 'ludovicchabant/vim-gutentags'
+			Plug 'justsor/vim-gutentags'
 		else
-			Plug 'ludovicchabant/vim-gutentags'
+			Plug 'justsor/vim-gutentags'
 			" Plug 'skywind3000/vim-gutentags'
 		endif
 	endif
+
+    if has("cscope")
+        set cscopeprg=/usr/bin/gtags-cscope
+        set cscopetag
+        set cscopeverbose
+        " set cscopetagorder=0  #default is zero
+        noremap <C-\>s :tab GscopeFind s <C-R>=expand("<cword>")<CR><CR>
+        noremap <C-\>g :tab GscopeFind g <C-R>=expand("<cword>")<CR><CR>
+        noremap <C-\>c :tab GscopeFind c <C-R>=expand("<cword>")<CR><CR>
+        noremap <C-\>t :tab GscopeFind t <C-R>=expand("<cword>")<CR><CR>
+        noremap <C-\>e :tab GscopeFind e <C-R>=expand("<cword>")<CR><CR>
+        noremap <C-\>f :tab GscopeFind f <C-R>=expand("<cfile>")<CR><CR>
+        noremap <C-\>i :tab GscopeFind i <C-R>=expand("<cfile>")<CR><CR>
+        noremap <C-\>d :tab GscopeFind d <C-R>=expand("<cword>")<CR><CR>
+        noremap <C-\>p :tab ptag <C-R>=expand("<cword>")<CR><CR>
+    endif
+
+    noremap <leader>cl :exec 'CCTreeLoadXRefDBFromDisk ' . './ccglue.out'<CR>
+    noremap <C-\>< :CCTreeTraceReverse . <C-R>=expand("<cword>")<CR><CR>
+    noremap <C-\>> :CCTreeTraceForward <C-R>=expand("<cword>")<CR><CR>
+    noremap <C-\>+ :CCTreeRecurseDepthPlus<CR>
+    noremap <C-\>- :CCTreeRecurseDepthMinus<CR>
 endif
 
 
@@ -307,7 +331,7 @@ endif
 " echodoc
 if index(g:bundle_group, 'echodoc') >= 0
 	Plug 'Shougo/echodoc.vim'
-	set noshowmode
+	set cmdheight=2
 	let g:echodoc#enable_at_startup = 1
 endif
 
@@ -330,6 +354,63 @@ endif
 " lightline
 if index(g:bundle_group, 'lightline') >= 0
 	Plug 'itchyny/lightline.vim'
+endif
+
+if index(g:bundle_group, 'DoxygenToolkit') >= 0
+    Plug 'vim-scripts/DoxygenToolkit.vim'
+    "DoxygenToolkit, this will be reset in workspace.vim
+    let g:DoxygenToolkit_authorName=""
+    let g:DoxygenToolkit_authorTag='yinghai.li@bitmain.com'
+    let g:DoxygenToolkit_licenseTag="* * * Copyright (C) Hiveview Inc. 2016-2017. All rights reserved. * * *\<enter>"
+    let g:DoxygenToolkit_undocTag="DOXIGEN_SKIP_BLOCK"
+    "let g:DoxygenToolkit_briefTag_funcName="no"
+    "Enable Doxygen syntax
+    let g:load_doxygen_syntax=1
+    " doxygen template
+    noremap <C-d> :Dox<CR>
+
+endif
+
+if index(g:bundle_group, 'MultipleSearch')
+    Plug 'vim-scripts/MultipleSearch'
+    """"""""""""""""""""""""""""""
+    " Visual
+    """"""""""""""""""""""""""""""
+    " " From an idea by Michael Naumann
+    function! VisualSearch(direction) range
+        let l:saved_reg = @"
+        execute "normal! vgvy"
+        let l:pattern = escape(@", '\\/.*$^~[]')
+        let l:pattern = substitute(l:pattern, "\n$", "", "")
+        if a:direction == 'b'
+            execute "normal ?" . l:pattern . "^M"
+        else
+            execute "normal /" . l:pattern . "^M"
+        endif
+        let @/ = l:pattern
+        let @" = l:saved_reg
+    endfunction
+
+    "Basically you press * or # to search for the current selection !! Really useful
+    vnoremap <silent> * :call VisualSearch('f')<CR>
+    vnoremap <silent> # :call VisualSearch('b')<CR>
+    " nnoremap <silent> <CR> :nohlsearch<CR><CR>
+    nnoremap <silent> <CR> :nohlsearch<CR><CR>
+    " nnoremap <silent> * :execute ':Search \<' . expand('<cword>') . '\>'<cr>
+    " Set the current search pattern to the next one in the list
+    " nnoremap <silent> <Leader>n :call <SID>SearchNext(0)<CR>
+    "
+    " Set the current search pattern to the previous one in the list
+    " nnoremap <silent> <Leader>N :call <SID>SearchNext(1)<CR>
+endif
+
+if index(g:bundle_group, 'vcscommand') >= 0
+    Plug 'vim-scripts/vcscommand.vim'
+    noremap <leader>sd :VCSVimDiff<CR>
+    noremap <leader>sl :VCSLog<CR>
+    noremap <leader>sr :VCSRevert<CR>
+    noremap <leader>sb :VCSBlame<CR>
+    noremap <leader>sD :VCSVimDiff
 endif
 
 if index(g:bundle_group, 'nerdtree') >= 0
@@ -382,11 +463,16 @@ if index(g:bundle_group, 'ale') >= 0
 		return shellescape(filereadable(path2)? path2 : path1)
 	endfunc
 
+    " let g:ale_lint_on_save = 1
 	let g:ale_python_flake8_options = '--conf='.s:lintcfg('flake8.conf')
 	let g:ale_python_pylint_options = '--rcfile='.s:lintcfg('pylint.conf')
 	let g:ale_python_pylint_options .= ' --disable=W'
-	let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-	let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+    if filereadable("./.root")
+        source ./.root
+    else
+        let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+        let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+    endif
 	let g:ale_c_cppcheck_options = ''
 	let g:ale_cpp_cppcheck_options = ''
 	let g:ale_lua_luacheck_options = '-d'

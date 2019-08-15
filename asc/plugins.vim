@@ -317,7 +317,7 @@ let g:indentLine_enabled = 1
 "----------------------------------------------------------------------
 " gutentags
 "----------------------------------------------------------------------
-let g:gutentags_project_root = ['.root']
+let g:gutentags_project_root = ['.root', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 
 " let g:gutentags_modules = ['ctags', 'gtags_cscope']
@@ -341,6 +341,8 @@ let g:gutentags_plus_switch = 0
 "----------------------------------------------------------------------
 " ale
 "----------------------------------------------------------------------
+let g:ale_sign_column_always = 1
+" let g:ale_set_highlights = 0
 let g:ale_linters_explicit = 1
 let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
