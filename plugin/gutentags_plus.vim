@@ -288,6 +288,7 @@ function! s:GscopeFind(bang, what, ...)
 	if success != 0 && a:bang == 0
 		let height = get(g:, 'gutentags_plus_height', 6)
 		call s:quickfix_open(height)
+        wincmd j
 	endif
 endfunc
 
