@@ -323,7 +323,7 @@ let g:gutentags_ctags_tagfile = '.tags'
 " let g:gutentags_modules = ['ctags', 'gtags_cscope']
 let g:gutentags_cache_dir = expand('~/.cache/tags')
 let g:gutentags_ctags_extra_args = []
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extras=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 

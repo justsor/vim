@@ -1975,7 +1975,7 @@ function! vimmake#update_filelist(outname)
 endfunc
 
 if !exists('g:vimmake_ctags_flags')
-	let g:vimmake_ctags_flags = '--fields=+niazS --extra=+q --c++-kinds=+px'
+	let g:vimmake_ctags_flags = '--fields=+niazS --extras=+q --c++-kinds=+px'
 	let g:vimmake_ctags_flags.= ' --c-kinds=+p -n'
 endif
 
