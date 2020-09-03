@@ -248,7 +248,10 @@ if index(g:bundle_group, 'opt') >= 0
 	endif
 	if executable('gtags-cscope') && executable('gtags')
 		let g:gutentags_modules += ['gtags_cscope']
+        " let g:gutentags_define_advanced_commands = 1
+        " let g:gutentags_trace = 1
 	endif
+    " let g:gutentags_define_advanced_commands = 1
 	if len(g:gutentags_modules) > 0
 		if s:uname != 'windows'
 			Plug 'justsor/vim-gutentags'
@@ -263,7 +266,7 @@ if index(g:bundle_group, 'opt') >= 0
         set cscopetag
         set cscopeverbose
         " set cscopetagorder=0  #default is zero
-        noremap <C-\>s :tab GscopeFind s <C-R>=expand("<cword>")<CR><CR>
+        noremap <C-\>s :GscopeFind s <C-R><C-W><cr>
         noremap <C-\>g :tab GscopeFind g <C-R>=expand("<cword>")<CR><CR>
         noremap <C-\>c :tab GscopeFind c <C-R>=expand("<cword>")<CR><CR>
         noremap <C-\>t :tab GscopeFind t <C-R>=expand("<cword>")<CR><CR>
@@ -543,6 +546,18 @@ if index(g:bundle_group, 'keysound') >= 0
 	Plug 'skywind3000/vim-keysound'
 	let g:keysound_theme = 'default'
 	let g:keysound_enable = 1
+endif
+
+if index(g:bundle_group, 'python') >= 0
+	Plug 'google/yapf'
+    autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
+
+    Plug 'timothycrosley/isort'
+    autocmd FileType python nnoremap <LocalLeader>i :!isort %<CR><CR>
+
+    Plug 'liuchengxu/vista.vim'
+
+    " Plug 'sillybun/autoformatpythonstatement', {'do': './install.sh'}
 endif
 
 
