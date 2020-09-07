@@ -74,9 +74,9 @@ if index(g:bundle_group, 'simple') >= 0
 
 	noremap <silent> <Plug>CycleFallbackNext <C-A>
 	noremap <silent> <Plug>CycleFallbackPrev <C-X>
-	nmap <silent> <c-a> <Plug>CycleNext
+	" nmap <silent> <c-a> <Plug>CycleNext   #conflict with inc
 	vmap <silent> <c-a> <Plug>CycleNext
-	nmap <silent> <c-x> <Plug>CyclePrev
+	" nmap <silent> <c-x> <Plug>CyclePrev   #conflict with dec
 	vmap <silent> <c-x> <Plug>CyclePrev
 endif
 
@@ -85,6 +85,7 @@ endif
 " package group - basic
 "----------------------------------------------------------------------
 if index(g:bundle_group, 'basic') >= 0
+    Plug 'wsdjeg/vimdoc-cn'
 	Plug 'tpope/vim-fugitive'
 	Plug 'mhinz/vim-startify'
 	Plug 'flazz/vim-colorschemes'
@@ -414,6 +415,10 @@ if index(g:bundle_group, 'vcscommand') >= 0
     noremap <leader>sr :VCSRevert<CR>
     noremap <leader>sb :VCSBlame<CR>
     noremap <leader>sD :VCSVimDiff
+endif
+
+if index(g:bundle_group, 'youcompleteme') >= 0
+    Plug 'ycm-core/YouCompleteMe'
 endif
 
 if index(g:bundle_group, 'nerdtree') >= 0
