@@ -100,16 +100,12 @@ if index(g:bundle_group, 'basic') >= 0
 	Plug 'dag/vim-fish'
 	
 	if has('python') || has('python3')
-		" Plug 'Yggdroot/LeaderF'
-		" let g:Lf_ShortcutF = '<c-p>'
-		" let g:Lf_ShortcutB = '<m-n>'
-		" noremap <c-n> :cclose<cr>:Leaderf mru --regexMode<cr>
-		" noremap <m-p> :cclose<cr>:LeaderfFunction!<cr>
-		" noremap <m-P> :cclose<cr>:LeaderfBufTag!<cr>
-		" noremap <m-n> :cclose<cr>:LeaderfBuffer<cr>
-		" noremap <m-m> :cclose<cr>:LeaderfTag<cr>
-		" let g:Lf_MruMaxFiles = 2048
-		" let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
+		Plug 'Yggdroot/LeaderF'
+		noremap <c-n> :cclose<cr>:Leaderf mru --regexMode<cr>
+		noremap <m-p> :cclose<cr>:LeaderfFunction!<cr>
+		noremap <m-P> :cclose<cr>:LeaderfBufTag!<cr>
+		noremap <m-n> :cclose<cr>:LeaderfBuffer<cr>
+		noremap <m-m> :cclose<cr>:LeaderfTag<cr>
 	else
 		Plug 'ctrlpvim/ctrlp.vim'
 		Plug 'tacahiroy/ctrlp-funky'
@@ -252,6 +248,7 @@ if index(g:bundle_group, 'opt') >= 0
         " let g:gutentags_define_advanced_commands = 1
         " let g:gutentags_trace = 1
 	endif
+    let g:gutentags_resolve_symlinks = 1
     " let g:gutentags_define_advanced_commands = 1
 	if len(g:gutentags_modules) > 0
 		if s:uname != 'windows'
@@ -274,6 +271,7 @@ if index(g:bundle_group, 'opt') >= 0
         noremap <C-\>e :tab GscopeFind e <C-R>=expand("<cword>")<CR><CR>
         noremap <C-\>f :tab GscopeFind f <C-R>=expand("<cfile>")<CR><CR>
         noremap <C-\>i :tab GscopeFind i <C-R>=expand("<cfile>")<CR><CR>
+        noremap <C-\>i :tab GscopeFind I <C-R>=expand("%:t")<CR><CR>
         noremap <C-\>d :tab GscopeFind d <C-R>=expand("<cword>")<CR><CR>
         noremap <C-\>p :tab ptag <C-R>=expand("<cword>")<CR><CR>
     endif

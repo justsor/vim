@@ -209,11 +209,11 @@ let g:Lf_WildIgnore = {
             \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
 			\ }
 
-let g:Lf_MruFileExclude = ['*.so', '*.exe', '*.py[co]', '*.sw?', '~$*', '*.bak', '*.tmp', '*.dll']
+let g:Lf_MruFileExclude = ['*.so', '*.exe', '*.py[co]', '*.sw?', '~$*', '*.bak', '*.tmp', '*.dll', '*.cmd', 'out/*', '*.o']
 let g:Lf_MruMaxFiles = 2048
 let g:Lf_StlColorscheme = 'powerline'
-let g:Lf_ShortcutF = '<c-p>'
-let g:Lf_ShortcutB = '<m-n>'
+let g:Lf_ShortcutF = '<leader>lf'
+let g:Lf_ShortcutB = '<leader>lb'
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
